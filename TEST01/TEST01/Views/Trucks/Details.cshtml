@@ -1,0 +1,114 @@
+﻿@model TEST01.Models.Truck
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Truck</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VinNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VinNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LiscencePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LiscencePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TruckStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TruckStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chassis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chassis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TruckPower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TruckPower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Torque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Torque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GearBox)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GearBox)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TankCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxLoad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxLoad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreferredLoad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreferredLoad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakeAndModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakeAndModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Garage.GarageAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Garage.GarageAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TruckNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

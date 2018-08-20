@@ -1,0 +1,99 @@
+﻿@model IEnumerable<TEST01.Models.Truck>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VinNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LiscencePlate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruckStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chassis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruckPower)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Torque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GearBox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TankCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxLoad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreferredLoad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakeAndModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Garage.GarageAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VinNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LiscencePlate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruckStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chassis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruckPower)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Torque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GearBox)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TankCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxLoad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreferredLoad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakeAndModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Garage.GarageAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TruckNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TruckNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TruckNumber })
+        </td>
+    </tr>
+}
+
+</table>

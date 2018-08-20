@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TestProject1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CargoType">
+          <Key>
+            <PropertyRef Name="CargoID" />
+          </Key>
+          <Property Name="CargoID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CargoDescription" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CargoWeight" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CargoHeight" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CargoLength" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CargoWidth" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="AbnormalLoad" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CustomerNumber" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CustomerEmail" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DriverName" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DriverAddress" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DriverContactNumber" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DriverSalary" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Garage">
+          <Key>
+            <PropertyRef Name="GarageID" />
+          </Key>
+          <Property Name="GarageID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GarageAddress" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="GarageContactNumber" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Size" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="MaintainenceCost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StartLocation" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="EndLocation" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Distance" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="PickupTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ArrivalTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Complete" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="FuelCost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TruckNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CargoID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AbnormalLoad" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="DriverID" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceHistory">
+          <Key>
+            <PropertyRef Name="ServiceDate" />
+          </Key>
+          <Property Name="ServiceDate" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Engine" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="PumpsAndFilters" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Transmission" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Chassis" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Cabin" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="WheelsAndTyres" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Brakes" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TruckNumber" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Truck">
+          <Key>
+            <PropertyRef Name="TruckNumber" />
+          </Key>
+          <Property Name="TruckNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="VinNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="LiscencePlate" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="TruckStatus" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Chassis" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="TruckPower" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Torque" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="GearBox" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="TankCapacity" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaxLoad" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="PreferredLoad" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="MakeAndModel" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="GarageID" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Job__CargoID__46E78A0C">
+          <End Role="CargoType" Type="Self.CargoType" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CargoType">
+              <PropertyRef Name="CargoID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CargoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__CustomerID__45F365D3">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__DriverID__47DBAE45">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="DriverID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__TruckNumber__44FF419A">
+          <End Role="Truck" Type="Self.Truck" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Truck">
+              <PropertyRef Name="TruckNumber" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="TruckNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ServiceHi__Truck__3C69FB99">
+          <End Role="Truck" Type="Self.Truck" Multiplicity="1" />
+          <End Role="ServiceHistory" Type="Self.ServiceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Truck">
+              <PropertyRef Name="TruckNumber" />
+            </Principal>
+            <Dependent Role="ServiceHistory">
+              <PropertyRef Name="TruckNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Truck__GarageID__398D8EEE">
+          <End Role="Garage" Type="Self.Garage" Multiplicity="1" />
+          <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garage">
+              <PropertyRef Name="GarageID" />
+            </Principal>
+            <Dependent Role="Truck">
+              <PropertyRef Name="GarageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestProject1ModelStoreContainer">
+          <EntitySet Name="CargoType" EntityType="Self.CargoType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garage" EntityType="Self.Garage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceHistory" EntityType="Self.ServiceHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Truck" EntityType="Self.Truck" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Job__CargoID__46E78A0C" Association="Self.FK__Job__CargoID__46E78A0C">
+            <End Role="CargoType" EntitySet="CargoType" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__CustomerID__45F365D3" Association="Self.FK__Job__CustomerID__45F365D3">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__DriverID__47DBAE45" Association="Self.FK__Job__DriverID__47DBAE45">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__TruckNumber__44FF419A" Association="Self.FK__Job__TruckNumber__44FF419A">
+            <End Role="Truck" EntitySet="Truck" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ServiceHi__Truck__3C69FB99" Association="Self.FK__ServiceHi__Truck__3C69FB99">
+            <End Role="Truck" EntitySet="Truck" />
+            <End Role="ServiceHistory" EntitySet="ServiceHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Truck__GarageID__398D8EEE" Association="Self.FK__Truck__GarageID__398D8EEE">
+            <End Role="Garage" EntitySet="Garage" />
+            <End Role="Truck" EntitySet="Truck" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestProject1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CargoType">
+          <Key>
+            <PropertyRef Name="CargoID" />
+          </Key>
+          <Property Name="CargoID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoDescription" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoWeight" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoHeight" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoLength" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoWidth" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AbnormalLoad" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__CargoID__46E78A0C" FromRole="CargoType" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerNumber" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__CustomerID__45F365D3" FromRole="Customer" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverName" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverAddress" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverContactNumber" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverSalary" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__DriverID__47DBAE45" FromRole="Driver" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Garage">
+          <Key>
+            <PropertyRef Name="GarageID" />
+          </Key>
+          <Property Name="GarageID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GarageAddress" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GarageContactNumber" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaintainenceCost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Trucks" Relationship="Self.FK__Truck__GarageID__398D8EEE" FromRole="Garage" ToRole="Truck" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartLocation" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EndLocation" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Distance" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PickupTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ArrivalTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Complete" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FuelCost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TruckNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AbnormalLoad" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CargoType" Relationship="Self.FK__Job__CargoID__46E78A0C" FromRole="Job" ToRole="CargoType" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Job__CustomerID__45F365D3" FromRole="Job" ToRole="Customer" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK__Job__DriverID__47DBAE45" FromRole="Job" ToRole="Driver" />
+          <NavigationProperty Name="Truck" Relationship="Self.FK__Job__TruckNumber__44FF419A" FromRole="Job" ToRole="Truck" />
+        </EntityType>
+        <EntityType Name="ServiceHistory">
+          <Key>
+            <PropertyRef Name="ServiceDate" />
+          </Key>
+          <Property Name="ServiceDate" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Engine" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PumpsAndFilters" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Transmission" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Chassis" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cabin" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WheelsAndTyres" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Brakes" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TruckNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Truck" Relationship="Self.FK__ServiceHi__Truck__3C69FB99" FromRole="ServiceHistory" ToRole="Truck" />
+        </EntityType>
+        <EntityType Name="Truck">
+          <Key>
+            <PropertyRef Name="TruckNumber" />
+          </Key>
+          <Property Name="TruckNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VinNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LiscencePlate" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TruckStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Chassis" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TruckPower" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Torque" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GearBox" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TankCapacity" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaxLoad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PreferredLoad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MakeAndModel" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GarageID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Garage" Relationship="Self.FK__Truck__GarageID__398D8EEE" FromRole="Truck" ToRole="Garage" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__TruckNumber__44FF419A" FromRole="Truck" ToRole="Job" />
+          <NavigationProperty Name="ServiceHistories" Relationship="Self.FK__ServiceHi__Truck__3C69FB99" FromRole="Truck" ToRole="ServiceHistory" />
+        </EntityType>
+        <Association Name="FK__Job__CargoID__46E78A0C">
+          <End Role="CargoType" Type="Self.CargoType" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CargoType">
+              <PropertyRef Name="CargoID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CargoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__CustomerID__45F365D3">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__DriverID__47DBAE45">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="DriverID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Truck__GarageID__398D8EEE">
+          <End Role="Garage" Type="Self.Garage" Multiplicity="1" />
+          <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garage">
+              <PropertyRef Name="GarageID" />
+            </Principal>
+            <Dependent Role="Truck">
+              <PropertyRef Name="GarageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Job__TruckNumber__44FF419A">
+          <End Role="Truck" Type="Self.Truck" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Truck">
+              <PropertyRef Name="TruckNumber" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="TruckNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ServiceHi__Truck__3C69FB99">
+          <End Role="Truck" Type="Self.Truck" Multiplicity="1" />
+          <End Role="ServiceHistory" Type="Self.ServiceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Truck">
+              <PropertyRef Name="TruckNumber" />
+            </Principal>
+            <Dependent Role="ServiceHistory">
+              <PropertyRef Name="TruckNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestProject1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CargoTypes" EntityType="Self.CargoType" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="Garages" EntityType="Self.Garage" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="ServiceHistories" EntityType="Self.ServiceHistory" />
+          <EntitySet Name="Trucks" EntityType="Self.Truck" />
+          <AssociationSet Name="FK__Job__CargoID__46E78A0C" Association="Self.FK__Job__CargoID__46E78A0C">
+            <End Role="CargoType" EntitySet="CargoTypes" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__CustomerID__45F365D3" Association="Self.FK__Job__CustomerID__45F365D3">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__DriverID__47DBAE45" Association="Self.FK__Job__DriverID__47DBAE45">
+            <End Role="Driver" EntitySet="Drivers" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Truck__GarageID__398D8EEE" Association="Self.FK__Truck__GarageID__398D8EEE">
+            <End Role="Garage" EntitySet="Garages" />
+            <End Role="Truck" EntitySet="Trucks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Job__TruckNumber__44FF419A" Association="Self.FK__Job__TruckNumber__44FF419A">
+            <End Role="Truck" EntitySet="Trucks" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ServiceHi__Truck__3C69FB99" Association="Self.FK__ServiceHi__Truck__3C69FB99">
+            <End Role="Truck" EntitySet="Trucks" />
+            <End Role="ServiceHistory" EntitySet="ServiceHistories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestProject1ModelStoreContainer" CdmEntityContainer="TestProject1Entities">
+          <EntitySetMapping Name="CargoTypes">
+            <EntityTypeMapping TypeName="TestProject1Model.CargoType">
+              <MappingFragment StoreEntitySet="CargoType">
+                <ScalarProperty Name="CargoID" ColumnName="CargoID" />
+                <ScalarProperty Name="CargoDescription" ColumnName="CargoDescription" />
+                <ScalarProperty Name="CargoWeight" ColumnName="CargoWeight" />
+                <ScalarProperty Name="CargoHeight" ColumnName="CargoHeight" />
+                <ScalarProperty Name="CargoLength" ColumnName="CargoLength" />
+                <ScalarProperty Name="CargoWidth" ColumnName="CargoWidth" />
+                <ScalarProperty Name="AbnormalLoad" ColumnName="AbnormalLoad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="TestProject1Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="TestProject1Model.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+                <ScalarProperty Name="DriverContactNumber" ColumnName="DriverContactNumber" />
+                <ScalarProperty Name="DriverSalary" ColumnName="DriverSalary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garages">
+            <EntityTypeMapping TypeName="TestProject1Model.Garage">
+              <MappingFragment StoreEntitySet="Garage">
+                <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+                <ScalarProperty Name="GarageAddress" ColumnName="GarageAddress" />
+                <ScalarProperty Name="GarageContactNumber" ColumnName="GarageContactNumber" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="MaintainenceCost" ColumnName="MaintainenceCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="TestProject1Model.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="StartLocation" ColumnName="StartLocation" />
+                <ScalarProperty Name="EndLocation" ColumnName="EndLocation" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+                <ScalarProperty Name="FuelCost" ColumnName="FuelCost" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TruckNumber" ColumnName="TruckNumber" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CargoID" ColumnName="CargoID" />
+                <ScalarProperty Name="AbnormalLoad" ColumnName="AbnormalLoad" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceHistories">
+            <EntityTypeMapping TypeName="TestProject1Model.ServiceHistory">
+              <MappingFragment StoreEntitySet="ServiceHistory">
+                <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="PumpsAndFilters" ColumnName="PumpsAndFilters" />
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="Chassis" ColumnName="Chassis" />
+                <ScalarProperty Name="Cabin" ColumnName="Cabin" />
+                <ScalarProperty Name="WheelsAndTyres" ColumnName="WheelsAndTyres" />
+                <ScalarProperty Name="Brakes" ColumnName="Brakes" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TruckNumber" ColumnName="TruckNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trucks">
+            <EntityTypeMapping TypeName="TestProject1Model.Truck">
+              <MappingFragment StoreEntitySet="Truck">
+                <ScalarProperty Name="TruckNumber" ColumnName="TruckNumber" />
+                <ScalarProperty Name="VinNumber" ColumnName="VinNumber" />
+                <ScalarProperty Name="LiscencePlate" ColumnName="LiscencePlate" />
+                <ScalarProperty Name="TruckStatus" ColumnName="TruckStatus" />
+                <ScalarProperty Name="Chassis" ColumnName="Chassis" />
+                <ScalarProperty Name="TruckPower" ColumnName="TruckPower" />
+                <ScalarProperty Name="Torque" ColumnName="Torque" />
+                <ScalarProperty Name="GearBox" ColumnName="GearBox" />
+                <ScalarProperty Name="TankCapacity" ColumnName="TankCapacity" />
+                <ScalarProperty Name="MaxLoad" ColumnName="MaxLoad" />
+                <ScalarProperty Name="PreferredLoad" ColumnName="PreferredLoad" />
+                <ScalarProperty Name="MakeAndModel" ColumnName="MakeAndModel" />
+                <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
