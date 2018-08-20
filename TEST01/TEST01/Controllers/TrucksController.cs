@@ -18,7 +18,7 @@ namespace TEST01.Controllers
         public ActionResult Index()
         {
             var trucks = db.Trucks.Include(t => t.Garage);
-            
+            return View(trucks.ToList());
         }
 
         // GET: Trucks/Details/5
